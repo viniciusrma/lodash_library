@@ -115,7 +115,7 @@ const _ = {
     /*
     7 .findKey()
     First it takes two arguments: an object and a predicate function (a function that returns a boolean value);
-    In next step it iterates through each key / value pair in the provided object and calls the predicate function with the value;
+    In next step it iterates through each key/value pair in the provided object and calls the predicate function with the value;
     .findKey() returns the first key that has a value that returns a truthy value from the predicate function;
     It will return undefined if no values return truthy values from the predicate function
     */
@@ -138,7 +138,23 @@ const _ = {
 
     /*
     8 .drop()
-    
+    Creates a slice of array with n elements dropped from the beginning.
+    It takes two arguments: an array and a number representing the number of items to drop from the beginning of the array;
+    Then it returns a new array which contains the elements from the original array, excluding the specified number of elements from the beginning of the array
+    If the number of elements to drop is unspecified, your method should drop one element
+    Take a look at the example below:    
+    */
+
+   drop (array, n) {
+    if (n === undefined) {
+      n = 1; // your method should drop one element, the number can't be unspecified.
+    }
+    let droppedArray = array.slice(n, array.length); 
+    return droppedArray;
+    },
+
+    /*
+    .slice() returns an copy of a part of an array starting with a subawway created between positions 'begin' and 'end'. The original array won't be modified. 
     */
     
     

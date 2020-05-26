@@ -157,10 +157,56 @@ const _ = {
     .slice() returns an copy of a part of an array starting with a subawway created between positions 'begin' and 'end'. The original array won't be modified. 
     */
     
+
+    /*
+    9 .dropWhile()
+    It takes two arguments: an array and a predicate function;
+    The supplied predicate function takes three arguments: the current element, the current element index, and the whole array
+    .dropWhile() creates a new copy of the supplied array, dropping elements from the beginning of the array until an element causes the predicate function to return a falsy value.
+
+    */
+
+   dropWhile (array, predicate) { //two arguments 
+    let cb = (element, index) => {
+      return !predicate (element, index, array); //The predicate function takes three arguments
+    };
+    let dropNumber = array.findIndex(cb);
+    let droppedArray = this.drop (array, dropNumber);
+    return droppedArray; // new supplied array
+    },
     
+    /*
+    .findIndex() navigates through all elements in the array and returns it's value when it returns true with the provided argument;    
+    */
 
+    /*
+    10 .chunk()
+    Creates an array of elements split into groups the length of size. 
+    If array can't be split evenly, the final chunk will be the remaining elements.
+    First it takes two arguments: an array and a size;
+    .chunk() breaks up the supplied array into arrays of the specified size;
+    Then it returns an array containing all of the previously-created array chunks in the order of the original array;
+    If the array can’t be broken up evenly, the last chunk will be smaller than the specified size;
+    If no size is supplied to the method, the size is set to 1
+    */
 
+   _.chunk(['a', 'b', 'c', 'd'], 2);
+   // returns [['a', 'b'], ['c', 'd']]
+    
+   _.chunk(['a', 'b', 'c', 'd'], 3);
+   // returns [['a', 'b', 'c'], ['d']]
 
+   chunk (array, size = 1) { //first two arguments
+      if (size === undefined) {
+        size = 1; // checking if size returns undefined and setting it's value to 1;
+      };
+      let arrayChunks = []; // crates a new empty array that will receive the new chunked values;
+      for (let i = 0; i < array.length; i += size) {
+        let arrayChunk = array.slice (i, i+size); 
+        arrayChunks.push(arrayChunks); //fill the new array with the new chunked values;
+      }
+      return arrayChunks
+    },
   };
 
 // Do not write or modify code below this line.

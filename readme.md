@@ -1,4 +1,4 @@
-#  Lodash library
+#  Lodash library studies
 
 Lodash is a JavaScript library which provides utility functions for common programming tasks using the functional programming paradigm.
 
